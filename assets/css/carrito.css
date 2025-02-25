@@ -1,0 +1,62 @@
+.floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: #FFD700; /* Color dorado */
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.floating-cart:hover {
+    background: #FFC107; /* Color más oscuro al pasar el mouse */
+}
+
+.cart-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+.cart {
+    position: fixed; /* Establecer fijo para que ocupe un lugar en la vista */
+    top: 80px; /* Ajustar según el diseño */
+    right: 20px;
+    width: 350px; /* Más ancho para que sea más visible */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+    max-height: 500px;
+    overflow-y: auto; /* Permitir desplazamiento */
+    transition: all 0.3s ease;
+}
+
+/* Estilos para los botones de quitar producto */
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}

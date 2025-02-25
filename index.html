@@ -18,8 +18,17 @@
     <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/carrito.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
+<-- Agregar Escalado de Rojo: De Mas oscuro a mas Claro.
+    Lo naranja a Negro y Fuente Blanca. 
+
+    El home que aparezcan las expansiones y a partir de ahi que se muestren las cartas de las expanciones.
+
+    Footer: Marcar todas las expansiones.
+
+
 
 -->
   </head>
@@ -54,9 +63,9 @@
                     <ul class="nav">
                       <li><a href="index.html" class="active">Home</a></li>
                       <li><a href="shop.html">Our Shop</a></li>
+                      <li><a href="contact.html">Juegos</a></li>
                       <li><a href="product-details.html">Product Details</a></li>
                       <li><a href="contact.html">Contact Us</a></li>
-                      <li><a href="#">Sign In</a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -159,59 +168,57 @@
         </div>
         <div class="col-lg-3 col-md-6">
           <div class="item">
+              <div class="thumb">
+                  <img src="assets/images/trending-01.jpg" alt="">
+                  <span class="price"> <em>$28</em>$20</span>
+              </div>
+              <div class="down-content">
+                  <span class="category">Action</span>
+                  <h4>Assasin Creed</h4>
+                  <button class="add-to-cart" data-id="1" data-name="Assassin Creed" data-price="20">Agregar al carrito</button>
+              </div>
+          </div>
+      </div> <div class="col-lg-3 col-md-6">
+        <div class="item">
             <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-01.jpg" alt=""></a>
-              <span class="price"><em>$28</em>$20</span>
+                <img src="assets/images/trending-01.jpg" alt="">
+                <span class="price"> <em>$28</em>$20</span>
             </div>
             <div class="down-content">
+                <span class="category">Action</span>
+                <h4>Assasin Creed</h4>
+                <button class="add-to-cart" data-id="1" data-name="Assassin Creed" data-price="20">Agregar al carrito</button>
+            </div>
+        </div>
+    </div> <div class="col-lg-3 col-md-6">
+      <div class="item">
+          <div class="thumb">
+              <img src="assets/images/trending-01.jpg" alt="">
+              <span class="price"> <em>$28</em>$20</span>
+          </div>
+          <div class="down-content">
               <span class="category">Action</span>
               <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
+              <button class="add-to-cart" data-id="1" data-name="Assassin Creed" data-price="20">Agregar al carrito</button>
           </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-02.jpg" alt=""></a>
-              <span class="price">$44</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-03.jpg" alt=""></a>
-              <span class="price"><em>$64</em>$44</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-04.jpg" alt=""></a>
-              <span class="price">$32</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
       </div>
+  </div> <div class="col-lg-3 col-md-6">
+    <div class="item">
+        <div class="thumb">
+            <img src="assets/images/trending-01.jpg" alt="">
+            <span class="price"> <em>$28</em>$20</span>
+        </div>
+        <div class="down-content">
+            <span class="category">Action</span>
+            <h4>Assasin Creed</h4>
+            <button class="add-to-cart" data-id="1" data-name="Assassin Creed" data-price="20">Agregar al carrito</button>
+        </div>
     </div>
+</div>
   </div>
+
+ 
+
 
   <div class="section most-played">
     <div class="container">
@@ -397,6 +404,20 @@
     </div>
   </div>
 
+<!-- Botón flotante del carrito -->
+<div id="floating-cart" class="floating-cart">
+  <img src="./assets/images/picachu.png" alt="Carrito" class="cart-icon">
+  <span id="cart-count" class="cart-count">0</span>
+</div>
+
+<div id="cart" class="cart" style="display: none;">
+  <h4>Carrito de Compras</h4>
+  <ul id="cart-items"></ul>
+  <p>Total: $<span id="total-price">0.00</span></p>
+  <button id="checkout" class="btn btn-primary">Pagar</button>
+  <button id="close-cart" class="btn btn-secondary">Cerrar</button>
+</div>
+
   <footer>
     <div class="container">
       <div class="col-lg-12">
@@ -413,6 +434,146 @@
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+
+<script>
+let cart = [];
+let totalPrice = 0;
+
+// Función para mostrar u ocultar el carrito con efecto de deslizamiento
+const toggleCart = () => {
+    const cartElement = document.getElementById('cart');
+
+    if (cartElement.style.display === 'block') {
+        // Efecto de cierre
+        cartElement.style.maxHeight = '0';
+        setTimeout(() => {
+            cartElement.style.display = 'none'; // Oculta después de la animación
+        }, 300); // Debe coincidir con la duración de la transición
+    } else {
+        // Actualizar la lista y abrir el carrito
+        updateCartItems();
+        cartElement.style.display = 'block'; // Muestra el carrito
+        setTimeout(() => {
+            cartElement.style.maxHeight = '500px'; // Ajustar a la altura deseada
+        }, 10); // Pequeña pausa para que se ejecute la animación
+    }
+};
+
+// Actualiza conteo de productos
+const updateCartCount = () => {
+    document.getElementById('cart-count').textContent = cart.length;
+};
+
+// Actualiza la lista de productos en el carrito
+const updateCartItems = () => {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = ''; // Limpiar lista previa
+    totalPrice = 0; // Reiniciar total
+
+    // Iterar sobre productos en el carrito
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartItems.appendChild(li);
+        totalPrice += item.price;
+    });
+
+    // Actualiza total
+    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+};
+
+// Evento de añadir al carrito
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const id = button.getAttribute('data-id');
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price'));
+        cart.push({id, name, price}); // Añadir producto al carrito
+        updateCartCount(); // Actualiza el contador
+    });
+});
+
+// Eventos de botones
+document.getElementById('floating-cart').addEventListener('click', toggleCart);
+document.getElementById('close-cart').addEventListener('click', () => {
+    const cartElement = document.getElementById('cart');
+    cartElement.style.maxHeight = '0'; // Efecto de cierre
+    setTimeout(() => {
+        cartElement.style.display = 'none'; // Oculta completamente
+    }, 300); // Debe coincidir con la duración de la transición
+});
+
+</script>
+  <!-- <script>
+  let cart = [];
+let totalPrice = 0;
+
+// Mostrar y ocultar el carrito
+const toggleCart = () => {
+    const cartElement = document.getElementById('cart');
+    cartElement.style.display = cartElement.style.display === 'none' ? 'block' : 'none';
+};
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const product = button.parentElement;
+        const id = button.getAttribute('data-id');
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price'));
+
+        // Agregar producto al carrito
+        cart.push({ id, name, price });
+        totalPrice += price;
+
+        updateCart();
+    });
+});
+
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = ''; // Limpiar el carrito
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartItems.appendChild(li);
+    });
+    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+    toggleCart(); // Mostrar el carrito
+}
+
+document.getElementById('checkout').addEventListener('click', () => {
+    const items = cart.map(item => ({
+        id: item.id,
+        title: item.name,
+        quantity: 1,
+        currency_id: 'ARS',
+        unit_price: item.price
+    }));
+
+    fetch('/create_preference', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ items })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.init_point) {
+            window.location.href = data.init_point;
+        } else {
+            alert('Error al crear la preferencia de pago');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+document.getElementById('close-cart').addEventListener('click', () => {
+    toggleCart();
+});
+ </script> -->
 
   </body>
 </html>
