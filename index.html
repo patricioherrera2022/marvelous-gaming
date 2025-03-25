@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/carrito.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="./assets/Backend/mp.js">    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 <-- Agregar Escalado de Rojo: De Mas oscuro a mas Claro.
     Lo naranja a Negro y Fuente Blanca. 
@@ -61,15 +61,13 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html" class="active">Home</a></li>
-                      <li><a href="shop.html">Our Shop</a></li>
+                      <li><a href="index.html" class="active">Inicio</a></li>
+                      <li><a href="shop.html">Expansiones</a></li>
                       <li><a href="contact.html">Juegos</a></li>
-                      <li><a href="product-details.html">Product Details</a></li>
-                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="product-details.html">Sobre nosotros</a></li>
+                      <li><a href="contact.html">Cotacto</a></li>
                   </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
+               
                     <!-- ***** Menu End ***** -->
                 </nav>
             </div>
@@ -83,16 +81,10 @@
       <div class="row">
         <div class="col-lg-6 align-self-center">
           <div class="caption header-text">
-            <h6>Welcome to lugx</h6>
-            <h2>BEST GAMING SITE EVER!</h2>
+            <h6>Somos</h6>
+            <h2>Marvelous Gaming</h2>
             <p>LUGX Gaming is free Bootstrap 5 HTML CSS website template for your gaming websites. You can download and use this layout for commercial purposes. Please tell your friends about TemplateMo.</p>
-            <div class="search-input">
-              <form id="search" action="#">
-                <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
-                <button role="button">Search Now</button>
-              </form>
-            </div>
-          </div>
+                </div>
         </div>
         <div class="col-lg-4 offset-lg-2">
           <div class="right-image">
@@ -114,7 +106,7 @@
               <div class="image">
                 <img src="assets/images/featured-01.png" alt="" style="max-width: 44px;">
               </div>
-              <h4>Free Storage</h4>
+              <h4>Expansión 1</h4>
             </div>
           </a>
         </div>
@@ -124,7 +116,7 @@
               <div class="image">
                 <img src="assets/images/featured-02.png" alt="" style="max-width: 44px;">
               </div>
-              <h4>User More</h4>
+              <h4>Expansión 2</h4>
             </div>
           </a>
         </div>
@@ -134,7 +126,7 @@
               <div class="image">
                 <img src="assets/images/featured-03.png" alt="" style="max-width: 44px;">
               </div>
-              <h4>Reply Ready</h4>
+              <h4>Expansión 3</h4>
             </div>
           </a>
         </div>
@@ -144,7 +136,7 @@
               <div class="image">
                 <img src="assets/images/featured-04.png" alt="" style="max-width: 44px;">
               </div>
-              <h4>Easy Layout</h4>
+              <h4>Expansión 4</h4>
             </div>
           </a>
         </div>
@@ -157,13 +149,13 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="section-heading">
-            <h6>Trending</h6>
-            <h2>Trending Games</h2>
+            <h6>Ofertas en Tendencia</h6>
+            <h2>Cartas Pokemon en Ofertas</h2>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="main-button">
-            <a href="shop.html">View All</a>
+            <a href="shop.html">Ver Todo</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -225,8 +217,8 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="section-heading">
-            <h6>TOP GAMES</h6>
-            <h2>Most Played</h2>
+            <h6>Cartas V-Max</h6>
+            <h2>Expansión .....</h2>
           </div>
         </div>
         <div class="col-lg-6">
@@ -410,14 +402,13 @@
   <span id="cart-count" class="cart-count">0</span>
 </div>
 
-<div id="cart" class="cart" style="display: none;">
+<div id="cart" class="cart">
   <h4>Carrito de Compras</h4>
   <ul id="cart-items"></ul>
   <p>Total: $<span id="total-price">0.00</span></p>
   <button id="checkout" class="btn btn-primary">Pagar</button>
   <button id="close-cart" class="btn btn-secondary">Cerrar</button>
 </div>
-
   <footer>
     <div class="container">
       <div class="col-lg-12">
@@ -433,35 +424,20 @@
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
+  <script src="./assets/js/Backend/mp.js"></script>
+  <script src="server.js"></script>
   <script src="assets/js/custom.js"></script>
 
 <script>
+
 let cart = [];
 let totalPrice = 0;
 
-// Función para mostrar u ocultar el carrito con efecto de deslizamiento
+// Función para mostrar/ocultar el carrito
 const toggleCart = () => {
     const cartElement = document.getElementById('cart');
-
-    if (cartElement.style.display === 'block') {
-        // Efecto de cierre
-        cartElement.style.maxHeight = '0';
-        setTimeout(() => {
-            cartElement.style.display = 'none'; // Oculta después de la animación
-        }, 300); // Debe coincidir con la duración de la transición
-    } else {
-        // Actualizar la lista y abrir el carrito
-        updateCartItems();
-        cartElement.style.display = 'block'; // Muestra el carrito
-        setTimeout(() => {
-            cartElement.style.maxHeight = '500px'; // Ajustar a la altura deseada
-        }, 10); // Pequeña pausa para que se ejecute la animación
-    }
-};
-
-// Actualiza conteo de productos
-const updateCartCount = () => {
-    document.getElementById('cart-count').textContent = cart.length;
+    cartElement.classList.toggle('open'); // Alterna la clase 'open'
+    updateCartItems(); // Actualiza los elementos del carrito
 };
 
 // Actualiza la lista de productos en el carrito
@@ -470,16 +446,52 @@ const updateCartItems = () => {
     cartItems.innerHTML = ''; // Limpiar lista previa
     totalPrice = 0; // Reiniciar total
 
-    // Iterar sobre productos en el carrito
-    cart.forEach(item => {
+    // Recorrer los productos en el carrito
+    cart.forEach((item, index) => {
         const li = document.createElement('li');
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        li.innerHTML = `
+            <div>
+                <strong>${item.name}</strong> - $${item.price.toFixed(2)} x ${item.quantity}
+            </div>
+            <div>
+                <button onclick="increaseQuantity(${index})">+</button>
+                <button onclick="decreaseQuantity(${index})">-</button>
+                <button onclick="removeItem(${index})">Eliminar</button>
+            </div>
+        `;
         cartItems.appendChild(li);
-        totalPrice += item.price;
+
+        // Calcular el precio total
+        totalPrice += item.price * item.quantity;
     });
 
-    // Actualiza total
+    // Actualizar el precio total en el DOM
     document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+};
+
+// Función para aumentar la cantidad de un producto
+const increaseQuantity = (index) => {
+    cart[index].quantity++;
+    updateCartItems();
+    updateCartCount();
+};
+
+// Función para disminuir la cantidad de un producto
+const decreaseQuantity = (index) => {
+    if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+    } else {
+        cart.splice(index, 1); // Eliminar si la cantidad es 0
+    }
+    updateCartItems();
+    updateCartCount();
+};
+
+// Función para eliminar un producto del carrito
+const removeItem = (index) => {
+    cart.splice(index, 1);
+    updateCartItems();
+    updateCartCount();
 };
 
 // Evento de añadir al carrito
@@ -488,92 +500,215 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         const id = button.getAttribute('data-id');
         const name = button.getAttribute('data-name');
         const price = parseFloat(button.getAttribute('data-price'));
-        cart.push({id, name, price}); // Añadir producto al carrito
-        updateCartCount(); // Actualiza el contador
+
+        // Verificar si el producto ya está en el carrito
+        const existingItem = cart.find(item => item.id === id);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ id, name, price, quantity: 1 });
+        }
+
+        // Actualizar el contador y los elementos del carrito
+        updateCartCount();
+        updateCartItems();
     });
 });
 
-// Eventos de botones
-document.getElementById('floating-cart').addEventListener('click', toggleCart);
-document.getElementById('close-cart').addEventListener('click', () => {
-    const cartElement = document.getElementById('cart');
-    cartElement.style.maxHeight = '0'; // Efecto de cierre
-    setTimeout(() => {
-        cartElement.style.display = 'none'; // Oculta completamente
-    }, 300); // Debe coincidir con la duración de la transición
-});
-
-</script>
-  <!-- <script>
-  let cart = [];
-let totalPrice = 0;
-
-// Mostrar y ocultar el carrito
-const toggleCart = () => {
-    const cartElement = document.getElementById('cart');
-    cartElement.style.display = cartElement.style.display === 'none' ? 'block' : 'none';
+// Actualiza el contador del carrito
+const updateCartCount = () => {
+    document.getElementById('cart-count').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 };
 
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-        const product = button.parentElement;
-        const id = button.getAttribute('data-id');
-        const name = button.getAttribute('data-name');
-        const price = parseFloat(button.getAttribute('data-price'));
+// Vincula el evento al logo de Pikachu
+document.getElementById('floating-cart').addEventListener('click', toggleCart);
 
-        // Agregar producto al carrito
-        cart.push({ id, name, price });
-        totalPrice += price;
+// Vincula el evento al botón de cerrar
+document.getElementById('close-cart').addEventListener('click', toggleCart);
 
-        updateCart();
-    });
-});
 
-function updateCart() {
-    const cartItems = document.getElementById('cart-items');
-    cartItems.innerHTML = ''; // Limpiar el carrito
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-        cartItems.appendChild(li);
-    });
-    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-    toggleCart(); // Mostrar el carrito
-}
 
-document.getElementById('checkout').addEventListener('click', () => {
-    const items = cart.map(item => ({
-        id: item.id,
-        title: item.name,
-        quantity: 1,
-        currency_id: 'ARS',
-        unit_price: item.price
-    }));
 
-    fetch('/create_preference', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ items })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.init_point) {
-            window.location.href = data.init_point;
-        } else {
-            alert('Error al crear la preferencia de pago');
+// Agrega esto dentro de tu tag <script> existente, después de las funciones del carrito
+
+// Función para manejar el checkout con Mercado Pago
+document.getElementById('checkout').addEventListener('click', async () => {
+    try {
+        // Preparar los items para Mercado Pago
+        const items = cart.map(item => ({
+            title: item.name,
+            unit_price: Number(item.price),
+            quantity: item.quantity
+        }));
+
+        // Enviar la solicitud al servidor
+        const response = await fetch('http://localhost:3001/create_preference', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ items })
+        });
+
+        const data = await response.json();
+
+        // Redirigir a la página de pago de Mercado Pago
+        if (data.id) {
+            window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${data.id}`;
         }
-    })
-    .catch(error => {
+    } catch (error) {
         console.error('Error:', error);
-    });
+        alert('Hubo un error al procesar el pago');
+    }
 });
+// let cart = [];
+// let totalPrice = 0;
 
-document.getElementById('close-cart').addEventListener('click', () => {
-    toggleCart();
-});
- </script> -->
+// // Función para mostrar/ocultar el carrito
+// const toggleCart = () => {
+//     const cartElement = document.getElementById('cart');
+//     cartElement.classList.toggle('open');
+//     updateCartItems();
+// };
+
+// // Actualiza la lista de productos en el carrito
+// const updateCartItems = () => {
+//     const cartItems = document.getElementById('cart-items');
+//     cartItems.innerHTML = ''; // Limpiar lista previa
+//     totalPrice = 0; // Reiniciar total
+
+//     cart.forEach((item, index) => {
+//         const li = document.createElement('li');
+//         li.innerHTML = `
+//             ${item.name} - $${item.price.toFixed(2)} x ${item.quantity}
+//             <div>
+//                 <button onclick="increaseQuantity(${index})">+</button>
+//                 <button onclick="decreaseQuantity(${index})">-</button>
+//                 <button onclick="removeItem(${index})">Eliminar</button>
+//             </div>
+//         `;
+//         cartItems.appendChild(li);
+//         totalPrice += item.price * item.quantity;
+//     });
+
+//     document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+// };
+
+// // Funciones para modificar el carrito
+// const increaseQuantity = (index) => {
+//     cart[index].quantity++;
+//     updateCartItems();
+// };
+
+// const decreaseQuantity = (index) => {
+//     if (cart[index].quantity > 1) {
+//         cart[index].quantity--;
+//     } else {
+//         cart.splice(index, 1); // Eliminar si la cantidad es 0
+//     }
+//     updateCartItems();
+// };
+
+// const removeItem = (index) => {
+//     cart.splice(index, 1);
+//     updateCartItems();
+// };
+
+// // Evento de añadir al carrito
+// document.querySelectorAll('.add-to-cart').forEach(button => {
+//     button.addEventListener('click', () => {
+//         const id = button.getAttribute('data-id');
+//         const name = button.getAttribute('data-name');
+//         const price = parseFloat(button.getAttribute('data-price'));
+
+//         const existingItem = cart.find(item => item.id === id);
+//         if (existingItem) {
+//             existingItem.quantity++;
+//         } else {
+//             cart.push({ id, name, price, quantity: 1 });
+//         }
+
+//         updateCartCount();
+//     });
+// });
+
+// // Actualiza el contador del carrito
+// const updateCartCount = () => {
+//     document.getElementById('cart-count').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+// };
+
+// // Eventos de botones
+// document.getElementById('floating-cart').addEventListener('click', toggleCart);
+// document.getElementById('close-cart').addEventListener('click', toggleCart);
+// let cart = [];
+// let totalPrice = 0;
+
+// // Función para mostrar u ocultar el carrito con efecto de deslizamiento
+// const toggleCart = () => {
+//     const cartElement = document.getElementById('cart');
+
+//     if (cartElement.style.display === 'block') {
+//         // Efecto de cierre
+//         cartElement.style.maxHeight = '0';
+//         setTimeout(() => {
+//             cartElement.style.display = 'none'; // Oculta después de la animación
+//         }, 300); // Debe coincidir con la duración de la transición
+//     } else {
+//         // Actualizar la lista y abrir el carrito
+//         updateCartItems();
+//         cartElement.style.display = 'block'; // Muestra el carrito
+//         setTimeout(() => {
+//             cartElement.style.maxHeight = '500px'; // Ajustar a la altura deseada
+//         }, 10); // Pequeña pausa para que se ejecute la animación
+//     }
+// };
+
+// // Actualiza conteo de productos
+// const updateCartCount = () => {
+//     document.getElementById('cart-count').textContent = cart.length;
+// };
+
+// // Actualiza la lista de productos en el carrito
+// const updateCartItems = () => {
+//     const cartItems = document.getElementById('cart-items');
+//     cartItems.innerHTML = ''; // Limpiar lista previa
+//     totalPrice = 0; // Reiniciar total
+
+//     // Iterar sobre productos en el carrito
+//     cart.forEach(item => {
+//         const li = document.createElement('li');
+//         li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+//         cartItems.appendChild(li);
+//         totalPrice += item.price;
+//     });
+
+//     // Actualiza total
+//     document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+// };
+
+// // Evento de añadir al carrito
+// document.querySelectorAll('.add-to-cart').forEach(button => {
+//     button.addEventListener('click', () => {
+//         const id = button.getAttribute('data-id');
+//         const name = button.getAttribute('data-name');
+//         const price = parseFloat(button.getAttribute('data-price'));
+//         cart.push({id, name, price}); // Añadir producto al carrito
+//         updateCartCount(); // Actualiza el contador
+//     });
+// });
+
+// // Eventos de botones
+// document.getElementById('floating-cart').addEventListener('click', toggleCart);
+// document.getElementById('close-cart').addEventListener('click', () => {
+//     const cartElement = document.getElementById('cart');
+//     cartElement.style.maxHeight = '0'; // Efecto de cierre
+//     setTimeout(() => {
+//         cartElement.style.display = 'none'; // Oculta completamente
+//     }, 300); // Debe coincidir con la duración de la transición
+// });
+
+</script>
+
 
   </body>
 </html>

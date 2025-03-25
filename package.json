@@ -1,0 +1,25 @@
+{
+  "name": "marvelous-gaming",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patricioherrera2022/marvelous-gaming.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patricioherrera2022/marvelous-gaming/issues"
+  },
+  "homepage": "https://github.com/patricioherrera2022/marvelous-gaming#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mercadopago": "^2.3.0"
+  },
+  "description": ""
+}
