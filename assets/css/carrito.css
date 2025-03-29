@@ -50,3 +50,10 @@
 .cart.open {
     right: 0; /* Se desliza hacia la vista */
 }
+
+
+.logo{
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+}

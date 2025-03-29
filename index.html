@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/carrito.css">
-    <link rel="stylesheet" href="./assets/Backend/mp.js">    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 <-- Agregar Escalado de Rojo: De Mas oscuro a mas Claro.
     Lo naranja a Negro y Fuente Blanca. 
@@ -56,7 +56,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="" style="width: 158px;">
+                        <img src="assets/images/Marvelous logo prueba.png" alt="" >
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -83,12 +83,12 @@
           <div class="caption header-text">
             <h6>Somos</h6>
             <h2>Marvelous Gaming</h2>
-            <p>LUGX Gaming is free Bootstrap 5 HTML CSS website template for your gaming websites. You can download and use this layout for commercial purposes. Please tell your friends about TemplateMo.</p>
+            <p>Tienda Online dedicada a la venta de cartas Pokemon, teniendo un catalogo amplio de varias Expansiones. Relizá tu compa y obtene un 10% de Bienvenida.</p>
                 </div>
         </div>
         <div class="col-lg-4 offset-lg-2">
           <div class="right-image">
-            <img src="assets/images/banner-image.jpg" alt="">
+            <img src="assets/images/pikachu.png" alt="">
             <span class="price">$22</span>
             <span class="offer">-40%</span>
           </div>
@@ -161,48 +161,48 @@
         <div class="col-lg-3 col-md-6">
           <div class="item">
               <div class="thumb">
-                  <img src="assets/images/trending-01.jpg" alt="">
+                  <img src="assets/images/carta picachu.png" alt="">
                   <span class="price"> <em>$28</em>$20</span>
               </div>
               <div class="down-content">
-                  <span class="category">Action</span>
-                  <h4>Assasin Creed</h4>
+                  <span class="category">Expansión ...</span>
+                  <h4>Pïkachu - Básico</h4>
                   <button class="add-to-cart" data-id="1" data-name="Assassin Creed" data-price="20">Agregar al carrito</button>
               </div>
           </div>
       </div> <div class="col-lg-3 col-md-6">
         <div class="item">
             <div class="thumb">
-                <img src="assets/images/trending-01.jpg" alt="">
-                <span class="price"> <em>$28</em>$20</span>
+                <img src="assets/images/lucario.png" alt="">
+                <span class="price"> <em>$48</em>$30</span>
             </div>
             <div class="down-content">
-                <span class="category">Action</span>
-                <h4>Assasin Creed</h4>
+                <span class="category">Expasión ...</span>
+                <h4>Lucario - Fase 1</h4>
                 <button class="add-to-cart" data-id="1" data-name="Assassin Creed" data-price="20">Agregar al carrito</button>
             </div>
         </div>
     </div> <div class="col-lg-3 col-md-6">
       <div class="item">
           <div class="thumb">
-              <img src="assets/images/trending-01.jpg" alt="">
+              <img src="assets/images/carta picachu.png" alt="">
               <span class="price"> <em>$28</em>$20</span>
           </div>
           <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
+              <span class="category">Expasión ...</span>
+              <h4>Pïkachu - Básico</h4>
               <button class="add-to-cart" data-id="1" data-name="Assassin Creed" data-price="20">Agregar al carrito</button>
           </div>
       </div>
   </div> <div class="col-lg-3 col-md-6">
     <div class="item">
         <div class="thumb">
-            <img src="assets/images/trending-01.jpg" alt="">
+            <img src="assets/images/lucario.png" alt="">
             <span class="price"> <em>$28</em>$20</span>
         </div>
         <div class="down-content">
-            <span class="category">Action</span>
-            <h4>Assasin Creed</h4>
+            <span class="category">Expasión ...</span>
+            <h4>Lucario - Fase 1</h4>
             <button class="add-to-cart" data-id="1" data-name="Assassin Creed" data-price="20">Agregar al carrito</button>
         </div>
     </div>
@@ -396,6 +396,8 @@
     </div>
   </div>
 
+
+  
 <!-- Botón flotante del carrito -->
 <div id="floating-cart" class="floating-cart">
   <img src="./assets/images/picachu.png" alt="Carrito" class="cart-icon">
@@ -424,8 +426,6 @@
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
-  <script src="./assets/js/Backend/mp.js"></script>
-  <script src="server.js"></script>
   <script src="assets/js/custom.js"></script>
 
 <script>
@@ -530,16 +530,16 @@ document.getElementById('close-cart').addEventListener('click', toggleCart);
 
 
 // Agrega esto dentro de tu tag <script> existente, después de las funciones del carrito
-
-// Función para manejar el checkout con Mercado Pago
-document.getElementById('checkout').addEventListener('click', async () => {
+  document.getElementById('checkout').addEventListener('click', async () => {
     try {
         // Preparar los items para Mercado Pago
         const items = cart.map(item => ({
-            title: item.name,
-            unit_price: Number(item.price),
-            quantity: item.quantity
+            title: item.name, // Nombre del producto
+            unit_price: parseFloat(item.price), // Precio unitario como número
+            quantity: parseInt(item.quantity, 10) // Cantidad como entero
         }));
+
+        console.log("Items enviados al servidor:", items); // Verifica los datos enviados
 
         // Enviar la solicitud al servidor
         const response = await fetch('http://localhost:3001/create_preference', {
@@ -550,17 +550,27 @@ document.getElementById('checkout').addEventListener('click', async () => {
             body: JSON.stringify({ items })
         });
 
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error("Error del servidor:", errorData);
+            alert(`Error: ${errorData.error}\nDetalles: ${errorData.details}`);
+            return;
+        }
+
         const data = await response.json();
 
         // Redirigir a la página de pago de Mercado Pago
         if (data.id) {
             window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${data.id}`;
+        } else {
+            alert('No se pudo generar la preferencia de pago.');
         }
     } catch (error) {
         console.error('Error:', error);
         alert('Hubo un error al procesar el pago');
     }
 });
+
 // let cart = [];
 // let totalPrice = 0;
 
