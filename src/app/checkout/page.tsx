@@ -536,18 +536,18 @@ function CheckoutContent() {
       >
         <div className="space-y-6 lg:col-span-7">
           {/* Buyer info */}
-          <div className="rounded-3xl border border-white/10 bg-obsidian-850 p-6">
+          <div className="rounded-3xl border border-white/10 bg-obsidian-850 p-4 sm:p-6">
             <h2 className="font-display text-lg font-bold text-white">
               1. Datos del Comprador
             </h2>
-            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="mt-4 grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4">
               <input
                 required
                 type="text"
                 value={buyerName}
                 onChange={(e) => setBuyerName(e.target.value)}
                 placeholder="Nombre y Apellido *"
-                className="rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-sm text-white outline-none focus:border-crimson-500"
+                className="rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-base text-white outline-none focus:border-crimson-500 sm:text-sm"
               />
               <input
                 required
@@ -555,7 +555,7 @@ function CheckoutContent() {
                 value={buyerEmail}
                 onChange={(e) => setBuyerEmail(e.target.value)}
                 placeholder="Email *"
-                className="rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-sm text-white outline-none focus:border-crimson-500"
+                className="rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-base text-white outline-none focus:border-crimson-500 sm:text-sm"
               />
               <input
                 required
@@ -563,20 +563,20 @@ function CheckoutContent() {
                 value={buyerPhone}
                 onChange={(e) => setBuyerPhone(e.target.value)}
                 placeholder="WhatsApp / Teléfono *"
-                className="rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-sm text-white outline-none focus:border-crimson-500"
+                className="rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-base text-white outline-none focus:border-crimson-500 sm:text-sm"
               />
               <input
                 type="text"
                 value={buyerDni}
                 onChange={(e) => setBuyerDni(e.target.value)}
                 placeholder="DNI (para envío / factura)"
-                className="rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-sm text-white outline-none focus:border-crimson-500"
+                className="rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-base text-white outline-none focus:border-crimson-500 sm:text-sm"
               />
             </div>
           </div>
 
           {/* Shipping with CP Calculator */}
-          <div className="rounded-3xl border border-white/10 bg-obsidian-850 p-6">
+          <div className="rounded-3xl border border-white/10 bg-obsidian-850 p-4 sm:p-6">
             <div className="flex items-center gap-2">
               <Truck className="h-5 w-5 text-crimson-500" />
               <h2 className="font-display text-lg font-bold text-white">
@@ -648,7 +648,7 @@ function CheckoutContent() {
                 return (
                   <label
                     key={q.id}
-                    className={`flex cursor-pointer items-center justify-between gap-4 rounded-2xl border p-4 transition ${
+                    className={`flex cursor-pointer flex-col gap-2 rounded-2xl border p-3.5 transition sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:p-4 ${
                       selected
                         ? "border-crimson-500 bg-crimson-950/25"
                         : "border-white/10 bg-obsidian-950 hover:border-white/25"
@@ -678,7 +678,7 @@ function CheckoutContent() {
                         </p>
                       </div>
                     </div>
-                    <div className="text-right">
+                    <div className="pl-6 text-left sm:pl-0 sm:text-right">
                       {q.is_free && q.original_price_ars > 0 && (
                         <span className="block text-[11px] text-slate-500 line-through">
                           {formatARS(q.original_price_ars)}

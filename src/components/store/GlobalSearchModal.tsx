@@ -68,22 +68,22 @@ export function GlobalSearchModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center bg-black/80 px-4 pt-20 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-start justify-center bg-black/80 px-3 pt-4 backdrop-blur-md sm:px-4 sm:pt-20"
       onClick={onClose}
     >
       <div
         className="w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-obsidian-850 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center gap-3 border-b border-white/10 px-5 py-4">
-          <Search className="h-5 w-5 text-crimson-500" />
+        <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3.5 sm:px-5 sm:py-4">
+          <Search className="h-5 w-5 shrink-0 text-crimson-500" />
           <input
             autoFocus
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Buscá cartas (Charizard, Pikachu...), expansiones (151, Surging Sparks...), ETB o juegos..."
-            className="w-full bg-transparent text-sm text-white placeholder-slate-400 outline-none sm:text-base"
+            placeholder="Buscá cartas, expansiones, ETB o juegos..."
+            className="w-full bg-transparent text-base text-white placeholder-slate-400 outline-none"
           />
           {loading && (
             <Loader2 className="h-4 w-4 animate-spin text-crimson-400" />
@@ -97,7 +97,7 @@ export function GlobalSearchModal({
           </button>
         </div>
 
-        <div className="max-h-[65vh] overflow-y-auto p-5">
+        <div className="max-h-[75dvh] overflow-y-auto p-4 sm:max-h-[65vh] sm:p-5">
           {!query.trim() ? (
             <div className="flex flex-col items-center justify-center py-10 text-center">
               <Sparkles className="mb-3 h-8 w-8 text-crimson-500" />

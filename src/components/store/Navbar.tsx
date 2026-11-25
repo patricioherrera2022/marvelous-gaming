@@ -27,24 +27,24 @@ export function Navbar({ settings }: { settings: StoreSettings }) {
   return (
     <>
       {settings.promo_banner_enabled && settings.promo_banner_text && (
-        <div className="no-print bg-crimson-scale px-4 py-2 text-center text-xs font-medium tracking-wide text-white sm:text-sm">
+        <div className="no-print bg-crimson-scale px-3 py-1.5 text-center text-[11px] font-medium leading-snug tracking-wide text-white sm:px-4 sm:py-2 sm:text-sm">
           {settings.promo_banner_text}
         </div>
       )}
 
       <header className="no-print sticky top-0 z-40 border-b border-white/10 bg-obsidian-950/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-          <Link href="/" className="flex shrink-0 items-center gap-3 whitespace-nowrap">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2.5 px-3 py-2.5 sm:gap-3 sm:px-6 sm:py-3 lg:px-8">
+          <Link href="/" className="flex shrink-0 items-center gap-2.5 whitespace-nowrap sm:gap-3">
             <img
               src="/images/marvelous-logo.jpg"
               alt="Marvelous Gaming"
-              className="h-11 w-11 rounded-xl object-cover ring-1 ring-white/15"
+              className="h-10 w-10 rounded-xl object-cover ring-1 ring-white/15 sm:h-11 sm:w-11"
             />
-            <div className="hidden sm:block">
-              <span className="block font-display text-base font-bold tracking-tight text-white">
+            <div>
+              <span className="block font-display text-sm font-bold tracking-tight text-white sm:text-base">
                 MARVELOUS <span className="text-crimson-500">GAMING</span>
               </span>
-              <span className="block text-[11px] uppercase tracking-widest text-slate-400">
+              <span className="hidden text-[11px] uppercase tracking-widest text-slate-400 sm:block">
                 Pokémon TCG &amp; Gaming Store
               </span>
             </div>
@@ -119,7 +119,18 @@ export function Navbar({ settings }: { settings: StoreSettings }) {
         </div>
 
         {mobileOpen && (
-          <div className="border-t border-white/10 bg-obsidian-900 px-4 py-3 lg:hidden">
+          <div className="border-t border-white/10 bg-obsidian-900 px-4 py-4 lg:hidden">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                setSearchOpen(true);
+              }}
+              className="mb-3 flex w-full items-center gap-2.5 rounded-xl border border-white/10 bg-obsidian-950 px-4 py-3 text-sm text-slate-300"
+            >
+              <Search className="h-4 w-4 text-crimson-400" />
+              <span>Buscar cartas, expansiones o juegos...</span>
+            </button>
             <div className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => {
                 const active =
@@ -131,7 +142,7 @@ export function Navbar({ settings }: { settings: StoreSettings }) {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-medium ${active
+                    className={`flex items-center justify-between rounded-xl px-3.5 py-3 text-sm font-medium ${active
                         ? "bg-crimson-600/20 text-white"
                         : "text-slate-300 hover:bg-white/5 hover:text-white"
                       }`}

@@ -7,6 +7,7 @@ import {
   RotateCw,
   RefreshCw,
   Sparkles,
+  X,
   ZoomIn,
   ZoomOut,
   FlipHorizontal2,
@@ -420,7 +421,7 @@ export function CardInspector3D({
       onPointerCancel={handlePointerUp}
       onWheel={handleWheel}
       className={`relative flex select-none items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-obsidian-850 via-obsidian-950 to-obsidian-900 ${
-        tall ? "h-[72vh] w-full" : "h-[480px] sm:h-[530px]"
+        tall ? "h-[60dvh] w-full sm:h-[72vh]" : "h-[365px] sm:h-[520px]"
       } ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
       style={{ perspective: "1200px", touchAction: "none" }}
     >
@@ -433,13 +434,16 @@ export function CardInspector3D({
       />
 
       {discount && (
-        <span className="pointer-events-none absolute left-4 top-4 z-20 rounded-full bg-crimson-scale px-3 py-1 text-xs font-bold text-white shadow-crimson">
+        <span className="pointer-events-none absolute left-3 top-3 z-20 rounded-full bg-crimson-scale px-2.5 py-1 text-[11px] font-bold text-white shadow-crimson sm:left-4 sm:top-4 sm:px-3 sm:text-xs">
           -{discount}% OFF
         </span>
       )}
 
-      <div className="pointer-events-none absolute right-4 top-4 z-20 rounded-full border border-white/10 bg-black/50 px-3 py-1 text-[11px] font-medium text-slate-300 backdrop-blur">
-        Arrastrá para girar 360° • Rueda: Zoom
+      <div className="pointer-events-none absolute right-3 top-3 z-20 rounded-full border border-white/10 bg-black/55 px-2.5 py-1 text-[10px] font-medium text-slate-300 backdrop-blur sm:right-4 sm:top-4 sm:px-3 sm:text-[11px]">
+        <span className="sm:hidden">Deslizá 360°</span>
+        <span className="hidden sm:inline">
+          Arrastrá para girar 360° • Rueda: Zoom
+        </span>
       </div>
 
       {/* Zoom + Pan Container */}
@@ -452,7 +456,7 @@ export function CardInspector3D({
         {/* 3D Card Container */}
         <div
           className={`relative aspect-[63/88] ${
-            tall ? "w-[290px] sm:w-[340px]" : "w-[250px] sm:w-[290px]"
+            tall ? "w-[235px] sm:w-[340px]" : "w-[195px] sm:w-[290px]"
           }`}
           style={{
             transformStyle: "preserve-3d",
@@ -590,18 +594,18 @@ export function CardInspector3D({
       </div>
 
       {/* Back Style Switcher */}
-      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/5 pt-2.5 text-[11px]">
+      <div className="flex flex-col gap-2 border-t border-white/5 pt-2.5 text-[11px] sm:flex-row sm:items-center sm:justify-between">
         <span className="inline-flex items-center gap-1 font-semibold text-slate-400">
           <Sparkles className="h-3 w-3 text-crimson-400" />
           Dorso de carta:
         </span>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="scrollbar-none flex gap-1.5 overflow-x-auto pb-0.5 sm:flex-wrap sm:overflow-visible sm:pb-0">
           {BACK_STYLE_OPTIONS.map((opt) => (
             <button
               key={opt.id}
               type="button"
               onClick={() => setBackStyle(opt.id)}
-              className={`rounded-full px-2.5 py-1 font-semibold transition ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-2.5 py-1 font-semibold transition ${
                 backStyle === opt.id
                   ? "bg-crimson-600/25 text-white ring-1 ring-crimson-500/60"
                   : "bg-obsidian-950 text-slate-400 hover:text-white"
@@ -624,8 +628,18 @@ export function CardInspector3D({
       </div>
 
       {fullscreen && (
-        <div className="fixed inset-0 z-50 flex flex-col justify-center bg-black/90 p-4 backdrop-blur-lg sm:p-8">
+        <div className="fixed inset-0 z-50 flex h-[100dvh] flex-col justify-center overflow-y-auto bg-black/95 p-3 backdrop-blur-lg sm:p-8">
           <div className="mx-auto w-full max-w-4xl space-y-3">
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={() => setFullscreen(false)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-obsidian-850 px-3.5 py-1.5 text-xs font-bold text-white"
+              >
+                <X className="h-4 w-4" />
+                Cerrar 3D
+              </button>
+            </div>
             {renderStage(true)}
             {renderControls()}
           </div>

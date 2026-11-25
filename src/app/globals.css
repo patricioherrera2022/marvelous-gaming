@@ -6,6 +6,7 @@
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -76,6 +77,15 @@
 }
 
 .print-only {
+  display: none;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 

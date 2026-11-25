@@ -44,8 +44,8 @@ export function ExpansionsDirectoryClient({
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Buscar expansión (ej: 151, Surging Sparks, Evolving Skies, Base Set...)"
-              className="w-full rounded-xl border border-white/10 bg-obsidian-950 py-2.5 pl-10 pr-4 text-sm text-white placeholder-slate-500 outline-none focus:border-crimson-500"
+              placeholder="Buscar expansión (ej: 151, Surging Sparks, Evolving Skies...)"
+              className="w-full rounded-xl border border-white/10 bg-obsidian-950 py-2.5 pl-10 pr-4 text-base text-white placeholder-slate-500 outline-none focus:border-crimson-500 sm:text-sm"
             />
           </div>
 
@@ -60,10 +60,10 @@ export function ExpansionsDirectoryClient({
           </label>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="scrollbar-none mt-4 flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
           <button
             onClick={() => setSelectedSeries("all")}
-            className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${
+            className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${
               selectedSeries === "all"
                 ? "bg-crimson-scale text-white shadow-crimson"
                 : "bg-obsidian-950 text-slate-300 hover:text-white"
@@ -75,7 +75,7 @@ export function ExpansionsDirectoryClient({
             <button
               key={s.id}
               onClick={() => setSelectedSeries(s.id)}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${
                 selectedSeries === s.id
                   ? "bg-crimson-scale text-white shadow-crimson"
                   : "bg-obsidian-950 text-slate-300 hover:text-white"
@@ -92,13 +92,13 @@ export function ExpansionsDirectoryClient({
           No encontramos expansiones con esos filtros.
         </div>
       ) : (
-        <div className="space-y-12">
+        <div className="space-y-10 sm:space-y-12">
           {visibleSeries.map((serie) => (
             <section key={serie.id}>
-              <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-3">
+              <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3 sm:mb-5">
                 <div className="flex items-center gap-3">
                   <span className="h-6 w-1.5 rounded-full bg-crimson-scale" />
-                  <h2 className="font-display text-2xl font-bold text-white">
+                  <h2 className="font-display text-xl font-bold text-white sm:text-2xl">
                     {serie.name}
                   </h2>
                 </div>
@@ -107,7 +107,7 @@ export function ExpansionsDirectoryClient({
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
                 {serie.sets.map((set) => (
                   <ExpansionCard key={set.id} set={set} />
                 ))}

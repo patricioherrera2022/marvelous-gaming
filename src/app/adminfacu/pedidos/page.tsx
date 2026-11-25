@@ -101,11 +101,11 @@ export default function AdminOrdersPage() {
                     </p>
                   </div>
 
-                  <div className="text-right">
+                  <div className="text-left sm:text-right">
                     <p className="font-display text-2xl font-black text-crimson-400">
                       {formatARS(order.total_ars)}
                     </p>
-                    <div className="mt-2 flex flex-wrap justify-end gap-2">
+                    <div className="mt-2 flex flex-wrap justify-start gap-2 sm:justify-end">
                       <Link
                         href={`/adminfacu/pedidos/${order.id}/ticket`}
                         target="_blank"

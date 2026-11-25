@@ -67,7 +67,7 @@ export function ActiveCardsClient({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Buscar carta por nombre, # o expansión..."
-            className="w-full rounded-xl border border-white/10 bg-obsidian-950 py-2.5 pl-10 pr-4 text-sm text-white placeholder-slate-500 outline-none focus:border-crimson-500"
+            className="w-full rounded-xl border border-white/10 bg-obsidian-950 py-2.5 pl-10 pr-4 text-base text-white placeholder-slate-500 outline-none focus:border-crimson-500 sm:text-sm"
           />
         </div>
 
@@ -127,7 +127,7 @@ export function ActiveCardsClient({
           No encontramos cartas en stock con esos filtros.
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {filtered.map(({ card, listing }) => (
             <PokemonCardTile key={listing.id} card={card} listing={listing} />
           ))}

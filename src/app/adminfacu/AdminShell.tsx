@@ -89,7 +89,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             </div>
           )}
 
-          <nav className="mt-5 flex flex-row gap-1.5 overflow-x-auto lg:flex-col">
+          <nav className="scrollbar-none mt-4 flex flex-row gap-1.5 overflow-x-auto pb-1 lg:mt-5 lg:flex-col lg:overflow-visible lg:pb-0">
             {ADMIN_LINKS.map((link) => {
               const Icon = link.icon;
               const active =
@@ -113,18 +113,18 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
 
-        <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-4 lg:flex-col lg:items-stretch">
+        <div className="mt-4 flex items-center gap-2 border-t border-white/10 pt-3 lg:mt-6 lg:flex-col lg:items-stretch lg:pt-4">
           <Link
             href="/"
             target="_blank"
-            className="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-obsidian-950 px-3 py-2 text-xs font-semibold text-slate-300 hover:border-crimson-500/50 hover:text-white"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-obsidian-950 px-3 py-2 text-xs font-semibold text-slate-300 hover:border-crimson-500/50 hover:text-white"
           >
             <ExternalLink className="h-3.5 w-3.5" />
-            Ver Tienda Pública
+            Ver Tienda
           </Link>
           <button
             onClick={handleLogout}
-            className="flex items-center justify-center gap-2 rounded-xl border border-crimson-500/30 bg-crimson-950/30 px-3 py-2 text-xs font-semibold text-crimson-300 hover:bg-crimson-900/50"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-crimson-500/30 bg-crimson-950/30 px-3 py-2 text-xs font-semibold text-crimson-300 hover:bg-crimson-900/50"
           >
             <LogOut className="h-3.5 w-3.5" />
             Cerrar sesión

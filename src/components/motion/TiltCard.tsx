@@ -21,7 +21,7 @@ export function TiltCard({
   }
 
   const handleMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (e.pointerType === "touch" || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;

@@ -160,7 +160,7 @@ export function CardDetailClient({
         </div>
 
         {selected ? (
-          <div className="mt-7 space-y-6 rounded-3xl border border-white/10 bg-obsidian-850 p-6">
+          <div className="mt-6 space-y-5 rounded-3xl border border-white/10 bg-obsidian-850 p-4 sm:mt-7 sm:space-y-6 sm:p-6">
             {listings.length > 1 && (
               <div>
                 <p className="mb-2.5 text-xs font-bold uppercase tracking-wider text-slate-400">
@@ -205,7 +205,7 @@ export function CardDetailClient({
                       {formatARS(selected.compare_at_price_ars)}
                     </span>
                   )}
-                <p className="font-display text-4xl font-black text-white">
+                <p className="font-display text-3xl font-black text-white sm:text-4xl">
                   {formatARS(selected.price_ars)}
                 </p>
                 {transferPrice !== null &&
@@ -225,20 +225,20 @@ export function CardDetailClient({
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 text-xs">
-              <div className="rounded-xl bg-obsidian-950 p-3">
+            <div className="grid grid-cols-3 gap-2 text-[11px] sm:gap-3 sm:text-xs">
+              <div className="rounded-xl bg-obsidian-950 p-2.5 sm:p-3">
                 <span className="block text-slate-400">Condición</span>
                 <span className="mt-0.5 block font-bold text-white">
                   {CONDITION_LABELS[selected.condition] || selected.condition}
                 </span>
               </div>
-              <div className="rounded-xl bg-obsidian-950 p-3">
+              <div className="rounded-xl bg-obsidian-950 p-2.5 sm:p-3">
                 <span className="block text-slate-400">Acabado</span>
                 <span className="mt-0.5 block font-bold text-white">
                   {selected.finish}
                 </span>
               </div>
-              <div className="rounded-xl bg-obsidian-950 p-3">
+              <div className="rounded-xl bg-obsidian-950 p-2.5 sm:p-3">
                 <span className="block text-slate-400">Idioma</span>
                 <span className="mt-0.5 block font-bold text-white">
                   {selected.language}

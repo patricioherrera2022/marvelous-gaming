@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import {
@@ -42,8 +43,11 @@ interface LocalStoreData {
   settings: StoreSettings;
 }
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.VERCEL
+  ? path.join(os.tmpdir(), "marvelous-gaming-data")
+  : path.join(process.cwd(), "data");
 const LOCAL_STORE_PATH = path.join(DATA_DIR, "local-store.json");
+let memoryStoreCache: LocalStoreData | null = null;
 
 function defaultSettings(): StoreSettings {
   const now = new Date().toISOString();
@@ -406,39 +410,48 @@ function defaultLocalStore(): LocalStoreData {
 }
 
 function readLocalStore(): LocalStoreData {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-  if (!fs.existsSync(LOCAL_STORE_PATH)) {
-    const initial = defaultLocalStore();
-    fs.writeFileSync(LOCAL_STORE_PATH, JSON.stringify(initial, null, 2), "utf8");
-    return initial;
-  }
   try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    if (!fs.existsSync(LOCAL_STORE_PATH)) {
+      const initial = memoryStoreCache || defaultLocalStore();
+      memoryStoreCache = initial;
+      fs.writeFileSync(
+        LOCAL_STORE_PATH,
+        JSON.stringify(initial, null, 2),
+        "utf8"
+      );
+      return initial;
+    }
     const raw = fs.readFileSync(LOCAL_STORE_PATH, "utf8");
     const parsed = JSON.parse(raw) as Partial<LocalStoreData>;
-    return {
+    const normalized: LocalStoreData = {
       listings: parsed.listings || [],
       products: parsed.products || [],
       orders: parsed.orders || [],
       settings: { ...defaultSettings(), ...(parsed.settings || {}) },
     };
+    memoryStoreCache = normalized;
+    return normalized;
   } catch {
-    const fallback = defaultLocalStore();
-    fs.writeFileSync(
-      LOCAL_STORE_PATH,
-      JSON.stringify(fallback, null, 2),
-      "utf8"
-    );
-    return fallback;
+    if (!memoryStoreCache) {
+      memoryStoreCache = defaultLocalStore();
+    }
+    return memoryStoreCache;
   }
 }
 
 function writeLocalStore(data: LocalStoreData) {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
+  memoryStoreCache = data;
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    fs.writeFileSync(LOCAL_STORE_PATH, JSON.stringify(data, null, 2), "utf8");
+  } catch {
+    // Keep memoryStoreCache updated if filesystem is read-only
   }
-  fs.writeFileSync(LOCAL_STORE_PATH, JSON.stringify(data, null, 2), "utf8");
 }
 
 // ============================================================================

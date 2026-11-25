@@ -81,17 +81,17 @@ export default async function HomePage() {
       </section>
 
       {/* EXPANSIONS EXPLORER BY ERA */}
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <MotionReveal>
-          <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div className="mb-6 flex flex-col justify-between gap-3 sm:mb-8 sm:flex-row sm:items-end sm:gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-crimson-500">
                 Catálogo por Expansión
               </span>
-              <h2 className="mt-1 font-display text-3xl font-extrabold text-white">
+              <h2 className="mt-1 font-display text-2xl font-extrabold text-white sm:text-3xl">
                 Expansiones Pokémon TCG
               </h2>
-              <p className="mt-1 text-sm text-slate-400">
+              <p className="mt-1 text-xs text-slate-400 sm:text-sm">
                 Elegí una era y entrá directo a la expansión con su logo oficial
                 para ver sus cartas disponibles.
               </p>
@@ -109,14 +109,14 @@ export default async function HomePage() {
       </section>
 
       {/* FEATURED SINGLES */}
-      <section className="border-t border-white/10 bg-obsidian-900/40 py-14">
+      <section className="border-t border-white/10 bg-obsidian-900/40 py-10 sm:py-14">
         <MotionReveal className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div className="mb-6 flex flex-col justify-between gap-3 sm:mb-8 sm:flex-row sm:items-end sm:gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-crimson-500">
                 Cartas Sueltas
               </span>
-              <h2 className="mt-1 font-display text-3xl font-extrabold text-white">
+              <h2 className="mt-1 font-display text-2xl font-extrabold text-white sm:text-3xl">
                 Cartas Disponibles en Stock
               </h2>
             </div>
@@ -133,7 +133,7 @@ export default async function HomePage() {
               Todavía no hay cartas habilitadas a la venta.
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
               {featuredCards.map(({ card, listing }) => (
                 <PokemonCardTile
                   key={listing.id}
@@ -148,14 +148,14 @@ export default async function HomePage() {
 
       {/* SEALED TCG */}
       {sealedProducts.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <MotionReveal>
-            <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div className="mb-6 flex flex-col justify-between gap-3 sm:mb-8 sm:flex-row sm:items-end sm:gap-4">
               <div>
                 <span className="text-xs font-bold uppercase tracking-widest text-crimson-500">
                   Sellados de Fábrica
                 </span>
-                <h2 className="mt-1 font-display text-3xl font-extrabold text-white">
+                <h2 className="mt-1 font-display text-2xl font-extrabold text-white sm:text-3xl">
                   ETBs, Booster Boxes y Sobres
                 </h2>
               </div>
@@ -167,7 +167,7 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
               {sealedProducts.slice(0, 4).map((product) => (
                 <ProductTile key={product.id} product={product} />
               ))}
@@ -177,7 +177,7 @@ export default async function HomePage() {
       )}
 
       {/* PS4 / PS5 & ACCESSORIES */}
-      <section className="border-t border-white/10 bg-obsidian-900/40 py-14">
+      <section className="border-t border-white/10 bg-obsidian-900/40 py-10 sm:py-14">
         <MotionReveal className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
@@ -225,7 +225,7 @@ export default async function HomePage() {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
               {gamingItems.slice(0, 4).map((product) => (
                 <ProductTile key={product.id} product={product} />
               ))}

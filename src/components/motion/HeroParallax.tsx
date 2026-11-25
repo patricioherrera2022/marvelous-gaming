@@ -42,7 +42,7 @@ export function HeroParallax({
     <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative overflow-hidden border-b border-white/10 bg-obsidian-950 py-14 sm:py-20"
+      className="relative overflow-hidden border-b border-white/10 bg-obsidian-950 py-10 sm:py-16 lg:py-20"
     >
       {/* Parallax Animated Background Grid & Crimson Glow */}
       <motion.div
@@ -68,7 +68,7 @@ export function HeroParallax({
         <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-crimson-500/15 blur-3xl" />
       </motion.div>
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:gap-12 sm:px-6 lg:grid-cols-12 lg:px-8">
         {/* Left Copy */}
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 24 }}
@@ -76,12 +76,12 @@ export function HeroParallax({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="lg:col-span-7"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-crimson-500/40 bg-crimson-950/50 px-3.5 py-1.5 text-xs font-semibold text-crimson-300 backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5 text-crimson-400" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-crimson-500/40 bg-crimson-950/50 px-3 py-1 text-[11px] font-semibold text-crimson-300 backdrop-blur sm:px-3.5 sm:py-1.5 sm:text-xs">
+            <Sparkles className="h-3.5 w-3.5 shrink-0 text-crimson-400" />
             +{totalExpansions} Expansiones Pokémon TCG • Inspector 3D en vivo
           </div>
 
-          <h1 className="mt-5 font-display text-4xl font-black leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-display text-3xl font-black leading-[1.08] tracking-tight text-white sm:mt-5 sm:text-5xl lg:text-6xl">
             Tu universo{" "}
             <span className="inline-block bg-gradient-to-r from-red-400 via-crimson-500 to-crimson-600 bg-clip-text text-transparent">
               Pokémon TCG
@@ -89,56 +89,58 @@ export function HeroParallax({
             y Gaming en un solo lugar.
           </h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:mt-5 sm:text-lg">
             Inspeccioná cartas sueltas en 3D con zoom, explorá todas las
             expansiones con sus logos oficiales, productos sellados y muy
             pronto juegos de PS4, PS5 y accesorios.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 grid grid-cols-1 gap-2.5 sm:mt-8 sm:flex sm:flex-wrap sm:gap-3">
             <Link
               href="/expansiones"
-              className="inline-flex items-center gap-2 rounded-full bg-crimson-scale px-6 py-3.5 text-sm font-bold text-white shadow-crimson transition hover:scale-[1.03] hover:brightness-110"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-crimson-scale px-6 py-3.5 text-sm font-bold text-white shadow-crimson transition hover:scale-[1.03] hover:brightness-110"
             >
               <Layers className="h-4 w-4" />
               Explorar Expansiones
             </Link>
-            <Link
-              href="/cartas"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-obsidian-850/90 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:border-crimson-500/60"
-            >
-              Ver Cartas en Venta
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/sellados"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-obsidian-850/90 px-6 py-3.5 text-sm font-semibold text-slate-200 backdrop-blur transition hover:border-crimson-500/60 hover:text-white"
-            >
-              <Package className="h-4 w-4 text-crimson-400" />
-              Sellados TCG
-            </Link>
+            <div className="grid grid-cols-2 gap-2.5 sm:flex sm:gap-3">
+              <Link
+                href="/cartas"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-obsidian-850/90 px-4 py-3 text-xs font-semibold text-white backdrop-blur transition hover:border-crimson-500/60 sm:px-6 sm:py-3.5 sm:text-sm"
+              >
+                Cartas en Venta
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              </Link>
+              <Link
+                href="/sellados"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-obsidian-850/90 px-4 py-3 text-xs font-semibold text-slate-200 backdrop-blur transition hover:border-crimson-500/60 hover:text-white sm:px-6 sm:py-3.5 sm:text-sm"
+              >
+                <Package className="h-3.5 w-3.5 text-crimson-400 sm:h-4 sm:w-4" />
+                Sellados TCG
+              </Link>
+            </div>
           </div>
         </motion.div>
 
         {/* Right Parallax Floating Card Showcase */}
         <div className="relative lg:col-span-5">
-          <div className="relative mx-auto max-w-md rounded-3xl border border-white/10 bg-obsidian-850/85 p-6 shadow-card backdrop-blur-xl">
+          <div className="relative mx-auto max-w-md rounded-3xl border border-white/10 bg-obsidian-850/85 p-4 shadow-card backdrop-blur-xl sm:p-6">
             <div className="flex items-center justify-between">
-              <span className="rounded-full bg-crimson-600/20 px-3 py-1 text-xs font-semibold text-crimson-300">
+              <span className="rounded-full bg-crimson-600/20 px-3 py-1 text-[11px] font-semibold text-crimson-300 sm:text-xs">
                 Colección Destacada 3D
               </span>
               <img
                 src="https://assets.tcgdex.net/en/sv/sv03.5/logo.webp"
                 alt="Scarlet & Violet 151"
-                className="h-8 w-auto object-contain"
+                className="h-7 w-auto object-contain sm:h-8"
               />
             </div>
 
-            <div className="relative my-6 flex h-64 items-center justify-center">
+            <div className="relative my-4 flex h-52 items-center justify-center sm:my-6 sm:h-64">
               {/* Left Card Parallax Layer */}
               <motion.div
                 style={reduced ? undefined : { y: yLeft }}
-                className="absolute left-3 sm:left-5"
+                className="absolute left-2 sm:left-5"
               >
                 <motion.div
                   animate={
@@ -156,7 +158,7 @@ export function HeroParallax({
                     <img
                       src="https://assets.tcgdex.net/en/base/base1/4/low.webp"
                       alt="Charizard Base Set"
-                      className="h-44 w-auto rounded-xl border border-white/15 shadow-2xl transition hover:scale-105"
+                      className="h-36 w-auto rounded-xl border border-white/15 shadow-2xl transition hover:scale-105 sm:h-44"
                     />
                   </Link>
                 </motion.div>
@@ -179,7 +181,7 @@ export function HeroParallax({
                     <img
                       src="https://assets.tcgdex.net/en/sv/sv03.5/006/low.webp"
                       alt="Charizard ex 151"
-                      className="h-56 w-auto rounded-xl border border-crimson-500/40 shadow-[0_20px_50px_rgba(220,38,38,0.35)] transition hover:scale-105"
+                      className="h-44 w-auto rounded-xl border border-crimson-500/40 shadow-[0_20px_50px_rgba(220,38,38,0.35)] transition hover:scale-105 sm:h-56"
                     />
                   </Link>
                 </motion.div>
@@ -188,7 +190,7 @@ export function HeroParallax({
               {/* Right Card Parallax Layer */}
               <motion.div
                 style={reduced ? undefined : { y: yRight }}
-                className="absolute right-3 sm:right-5"
+                className="absolute right-2 sm:right-5"
               >
                 <motion.div
                   animate={
@@ -206,7 +208,7 @@ export function HeroParallax({
                     <img
                       src="https://assets.tcgdex.net/en/sv/sv08/238/low.webp"
                       alt="Pikachu ex Surging Sparks"
-                      className="h-44 w-auto rounded-xl border border-white/15 shadow-2xl transition hover:scale-105"
+                      className="h-36 w-auto rounded-xl border border-white/15 shadow-2xl transition hover:scale-105 sm:h-44"
                     />
                   </Link>
                 </motion.div>

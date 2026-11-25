@@ -43,14 +43,14 @@ export function ProductsCatalogClient({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Buscar producto..."
-            className="w-full rounded-xl border border-white/10 bg-obsidian-950 py-2.5 pl-10 pr-4 text-sm text-white placeholder-slate-500 outline-none focus:border-crimson-500"
+            className="w-full rounded-xl border border-white/10 bg-obsidian-950 py-2.5 pl-10 pr-4 text-base text-white placeholder-slate-500 outline-none focus:border-crimson-500 sm:text-sm"
           />
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="scrollbar-none flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
           <button
             onClick={() => setCategory("ALL")}
-            className={`rounded-full px-3.5 py-2 text-xs font-semibold transition ${
+            className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-semibold transition ${
               category === "ALL"
                 ? "bg-crimson-scale text-white shadow-crimson"
                 : "bg-obsidian-950 text-slate-300 hover:text-white"
@@ -62,7 +62,7 @@ export function ProductsCatalogClient({
             <button
               key={cat}
               onClick={() => setCategory(cat)}
-              className={`rounded-full px-3.5 py-2 text-xs font-semibold transition ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-semibold transition ${
                 category === cat
                   ? "bg-crimson-scale text-white shadow-crimson"
                   : "bg-obsidian-950 text-slate-300 hover:text-white"
@@ -79,7 +79,7 @@ export function ProductsCatalogClient({
           {emptyMessage}
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {filtered.map((product) => (
             <ProductTile key={product.id} product={product} />
           ))}

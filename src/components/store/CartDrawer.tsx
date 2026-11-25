@@ -32,7 +32,7 @@ export function CartDrawer({ settings }: { settings: StoreSettings }) {
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-black/75 backdrop-blur-sm">
       <div className="fixed inset-0" onClick={closeCart} />
-      <aside className="relative z-10 flex h-full w-full max-w-md flex-col border-l border-white/10 bg-obsidian-900 shadow-2xl">
+      <aside className="relative z-10 flex h-[100dvh] w-full max-w-md flex-col border-l border-white/10 bg-obsidian-900 shadow-2xl">
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <div className="flex items-center gap-2.5">
             <ShoppingBag className="h-5 w-5 text-crimson-500" />

@@ -67,6 +67,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ url: data.publicUrl });
     }
 
+    if (process.env.VERCEL) {
+      return NextResponse.json(
+        {
+          error:
+            "En Vercel la subida directa de archivos requiere conectar Supabase Storage. Mientras tanto podés pegar una URL de imagen.",
+        },
+        { status: 400 }
+      );
+    }
+
     const uploadDir = path.join(process.cwd(), "public", "uploads");
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });

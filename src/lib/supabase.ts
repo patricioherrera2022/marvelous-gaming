@@ -1,6 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
-import { cookies } from "next/headers";
 
 export function isSupabaseConfigured(): boolean {
   return Boolean(
@@ -27,27 +25,7 @@ export async function createSupabaseServerClient() {
   if (!url || !anon) {
     throw new Error("Supabase public credentials are not configured.");
   }
-  const cookieStore = await cookies();
-  return createServerClient(url, anon, {
-    cookies: {
-      getAll() {
-        return cookieStore.getAll();
-      },
-      setAll(
-        cookiesToSet: Array<{
-          name: string;
-          value: string;
-          options: CookieOptions;
-        }>
-      ) {
-        try {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set(name, value, options)
-          );
-        } catch {
-          // Ignored in Server Components where cookies are read-only
-        }
-      },
-    },
+  return createClient(url, anon, {
+    auth: { persistSession: false, autoRefreshToken: false },
   });
 }

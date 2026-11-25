@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/store/CartContext";
@@ -19,6 +19,12 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const dynamic = "force-dynamic";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#08080c",
+};
 
 export const metadata: Metadata = {
   title: "Marvelous Gaming | Cartas Pokémon TCG, Sellados y Gaming",
