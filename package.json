@@ -1,25 +1,31 @@
 {
   "name": "marvelous-gaming",
-  "version": "1.0.0",
-  "main": "server.js",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "sync:tcgdex": "node scripts/sync-tcgdex.mjs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/patricioherrera2022/marvelous-gaming.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/patricioherrera2022/marvelous-gaming/issues"
-  },
-  "homepage": "https://github.com/patricioherrera2022/marvelous-gaming#readme",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "mercadopago": "^2.3.0"
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.0",
+    "framer-motion": "^14.14.0",
+    "lucide-react": "^0.475.0",
+    "mercadopago": "^2.3.0",
+    "next": "^15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
-  "description": ""
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.0"
+  }
 }
